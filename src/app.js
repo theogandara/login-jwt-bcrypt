@@ -1,11 +1,11 @@
 import express from "express"
+import { router } from "./routes/users.routes"
+
 const app = express()
-const port = 3002
+app.use(express.json())
 
-app.get("/hello", (req, res) => {
-    res.send("Hello World 💚!")
-})
+app.use("/users", router)
 
-app.listen(port, () => {
-    console.log(`🔥 server is running in port ${port} 🤟`)
+app.listen(3000, () => {
+    console.log(`🔥 server is running`)
 })
